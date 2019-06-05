@@ -1,0 +1,48 @@
+# Data TSA
+A data profiling utility. 
+
+## First Time Setup
+1. __Create a virtual environment.__ The following command will create a vanilla python environment in a 'venv' directory. This directory will not be synced to github. Any required packages will be installed into this virtual environment.
+`C:\~\data_tsa>python -m venv venv`
+2. __Install required packages into the virtual environment.__ Packages that have been installed during development are captured in the 'data_tsa.requirements.txt' file. The following command will read this file and install all the required packages in your environment:
+`C:\~\data_tsa>pip install -r requirements.txt`
+
+## Every Time Setup
+Before doing any development work, activate your virtual environment:
+`C:\~\data_tsa>venv\Scripts\activate`
+You should see a prefix in the command line path:
+`(venv) C:\~\data_tsa`
+
+## Adding Packages
+If you have to add a new package to support development, do the following.
+1. Ensure that existing required packages have been installed:
+`C:\~\data_tsa>pip install -r requirements.txt`
+2. Update the requirements.txt file from your virtual environment:
+`C:\~\data_tsa>pip freeze > requirements.txt`
+
+## Git Workflow
+1. In GitBash, checkout the master branch and pull changes from the origin:
+`$git pull`
+2. Checkout a new working branch:
+`$git checkout -b <your_branch>`
+3. Do a bunch of work. Save normally.
+4. Add your changes to staging:
+`$git add .`
+5. Commit your changes:
+`$git commit -m "<add a short commit message here>"`
+6. Checkout the master branch:
+`$git checkout master`
+7. Pull any changes from the remote master branch that may have been committed while you were working:
+`$git pull`
+8. Checkout your working branch:
+`$git checkout <your_branch>`
+9. Rebase your changes on top of the updated master branch:
+`$git rebase origin/master`
+10. Push your branch to the origin (aka github):
+`$git push origin <your_branch>`
+11. Go to the project on github.com and find your branch.
+12. Create a pull request and assign a reviewer. 
+
+### Git Tips
+You can undo any work captured by git with the following command:
+`$git checkout some_file_path`
