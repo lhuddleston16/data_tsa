@@ -2,8 +2,8 @@ from data_tsa.inspector import Inspector
 
 class DateInspector(Inspector):
     
-    def __init__(self, df):
-        super().__init__(df)
+    def __init__(self, series):
+        super().__init__(series)
         pass
     
     def get_conversion_required_indicator(self):
@@ -13,4 +13,7 @@ class DateInspector(Inspector):
         pass
     
     def get_precision_variance(self):
+        pass
+    
+    def inspect(self):
         pass
