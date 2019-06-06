@@ -2,9 +2,8 @@ from data_tsa.inspector import Inspector
 
 class NumberInspector(Inspector):
     
-    def __init__(self):
-        super().__init__(*args, **kwargs)
-        pass
+    def __init__(self, series):
+        super().__init__(series)
     
     def get_non_negative_count(self):
         pass
@@ -34,4 +33,7 @@ class NumberInspector(Inspector):
         pass
     
     def get_value_skew(self, n=5):
+        pass
+
+    def inspect(self):
         pass

@@ -2,18 +2,21 @@ from data_tsa.inspector import Inspector
 
 class StringInspector(Inspector):
     
-    def __init__(self):
-        super().__init__(*args, **kwargs)
-        pass
-    
+    def __init__(self, series):
+        super().__init__(series)
+        
     def get_distinct_count(self):
-        pass
+        return len(self.series.unique())
+    
+    def _get_standardized_values(self):
+        s = self.series.tolist()
+        return [_.lower().strip() for _ in s]
     
     def get_strict_distinct_count(self):
-        pass
+        return len(set(self._get_standardized_values()))
     
     def get_estimated_duplicates_count(self):
-        pass
+        s = list(set(self._get_standardized_values()))
     
     def get_max_len_warning_count(self):
         pass
@@ -28,4 +31,7 @@ class StringInspector(Inspector):
         pass
     
     def get_trim_required_count(self):
+        pass
+    
+    def inspect(self):
         pass
