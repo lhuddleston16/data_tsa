@@ -1,6 +1,6 @@
 import numpy as np
-import pandas as pd
-from data_tsa.inspector import Inspector
+from data_tsa import Inspector
+
 number_dtypes = [np.int,
                  np.int0,
                  np.int8,
@@ -16,6 +16,7 @@ float_dtypes =  [np.float,
                  np.float16,
                  np.float32,
                  np.float64]
+
 class NumberInspector(Inspector):
     
     def __init__(self, series):
@@ -53,11 +54,7 @@ class NumberInspector(Inspector):
                 /sum(self.series.value_counts().nsmallest(5))
 
     def inspect(self):
-        insp = {}
-        insp['row_count'] = self.get_row_count()
-        insp['null_count'] = self.get_null_count()
-        insp['min_value'] = self.get_min_value()
-        insp['max_value'] = self.get_max_value()
+        insp = self.core_inspect()
         insp['non_negative_count'] = self.get_non_negative_count()
         insp['float_indicator'] = self.get_float_indicator()
         insp['mean_value'] =self.get_mean_value()
@@ -70,5 +67,3 @@ class NumberInspector(Inspector):
         insp['value_skew'] =self.get_value_skew()
         return insp
     
-
-

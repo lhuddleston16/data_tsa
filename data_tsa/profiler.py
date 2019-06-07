@@ -1,9 +1,14 @@
+# -*- coding: utf-8 -*-
+
 import numpy as np
-from data_tsa.dataframe_inspector import DataFrameInspector
-from data_tsa.inspector import Inspector
-from data_tsa.number_inspector import NumberInspector, number_dtypes
+from data_tsa import Inspector, DataFrameInspector, NumberInspector, \
+    number_dtypes, StringInspector, DateInspector
+
 class Profiler:
-    
+    '''
+    The Profiler class takes a pandas.DataFrame object, and returns a profile  
+    report on each column.
+    '''
     def __init__(self, dataframe):
         self.dataframe = dataframe
         self.type_exceptions = []
@@ -56,6 +61,14 @@ class Profiler:
         print('Profiling columns:')
         for col in self.dataframe.columns:
             print('-', col)
-            insp = Inspector(self.dataframe[col])
+            dtype = self.get_column_dtype(col)
+            if dtype == 'string':
+                insp = StringInspector(self.dataframe[col])
+            elif dtype == 'number':
+                insp = NumberInspector(self.dataframe[col])
+            elif dtype == 'datetime':
+                insp = DateInspector(self.dataframe[col])
+            else:
+                insp = Inspector(self.dataframe[col])
             for k, v in insp.inspect().items():
                 print('\t', k, '>', v)
