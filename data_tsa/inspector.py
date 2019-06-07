@@ -17,10 +17,14 @@ class Inspector:
     def get_max_value(self):
         return self.series.max()
     
-    def inspect(self):
+    def core_inspect(self):
         insp = {}
         insp['row_count'] = self.get_row_count()
         insp['null_count'] = self.get_null_count()
         insp['min_value'] = self.get_min_value()
         insp['max_value'] = self.get_max_value()
         return insp
+    
+    def inspect(self):
+        return self.core_inspect()
+        
