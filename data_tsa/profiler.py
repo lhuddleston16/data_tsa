@@ -1,7 +1,7 @@
 import numpy as np
 from data_tsa.dataframe_inspector import DataFrameInspector
 from data_tsa.inspector import Inspector
-
+from data_tsa.number_inspector import NumberInspector, number_dtypes
 class Profiler:
     
     def __init__(self, dataframe):
@@ -29,22 +29,12 @@ class Profiler:
         if type_exception:
             return type_exception
         self.validate_column(column)
-        number_types = [np.int,
-                        np.int0,
-                        np.int8,
-                        np.int16,
-                        np.int32,
-                        np.int64,
-                        np.float,
-                        np.float16,
-                        np.float32,
-                        np.float64]
         dtype = self.dataframe[column].dtype.type
         if dtype == np.object_:
             return 'string'
         elif dtype == np.datetime64:
             return 'datetime'
-        elif dtype in number_types:
+        elif dtype in number_dtypes:
             return 'number'
         else:
             return ValueError('\'{}\' did not resolve to a type of \'string\', \'datetime\', or \'number\''.format(column))
