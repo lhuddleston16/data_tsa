@@ -74,3 +74,16 @@ If you have to add a new package to support development, do the following.
 You can undo any work captured by git with the following command:
 
 `$git checkout some_file_path`
+
+## Updating Sphinx Documentation
+1. Navigate to docs folder:
+
+`~\docs>cd ~\data_tsa\docs`
+
+2. Generate api documentation:
+
+`~\docs>sphinx-apidoc -o source ..\data_tsa`
+
+3. Rebuild documentation
+
+`~\docs>make html`

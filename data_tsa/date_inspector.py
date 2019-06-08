@@ -4,10 +4,10 @@ from numpy import datetime64
 class DateInspector(Inspector):
     
     def get_conversion_required_indicator(self):
-        if self.series.dtypes.dtype.type != datetime64:
+        if self.series.dtypes.type != datetime64:
             self.series = self.series.astype(datetime64)
-            return False
-        return True
+            return True
+        return False
     
     def get_precision_variance(self):
         # microseconds
