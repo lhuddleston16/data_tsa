@@ -1,0 +1,487 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>data_tsa package &#8212; Data TSA 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Data TSA 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">data_tsa package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-data_tsa.dataframe_inspector">data_tsa.dataframe_inspector module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.date_inspector">data_tsa.date_inspector module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.df_slicer">data_tsa.df_slicer module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.inspector">data_tsa.inspector module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.number_inspector">data_tsa.number_inspector module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.profiler">data_tsa.profiler module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.string_inspector">data_tsa.string_inspector module</a></li>
+<li><a class="reference internal" href="#module-data_tsa.test_data">data_tsa.test_data module</a></li>
+<li><a class="reference internal" href="#module-data_tsa">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/data_tsa.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-tsa-package">
+<h1>data_tsa package<a class="headerlink" href="#data-tsa-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-data_tsa.dataframe_inspector">
+<span id="data-tsa-dataframe-inspector-module"></span><h2>data_tsa.dataframe_inspector module<a class="headerlink" href="#module-data_tsa.dataframe_inspector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.dataframe_inspector.DataFrameInspector">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.dataframe_inspector.</code><code class="sig-name descname">DataFrameInspector</code><span class="sig-paren">(</span><em class="sig-param">dataframe</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.dataframe_inspector.DataFrameInspector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="data_tsa.dataframe_inspector.DataFrameInspector.get_duplicate_row_indicator">
+<code class="sig-name descname">get_duplicate_row_indicator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.dataframe_inspector.DataFrameInspector.get_duplicate_row_indicator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.dataframe_inspector.DataFrameInspector.get_row_hash">
+<code class="sig-name descname">get_row_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.dataframe_inspector.DataFrameInspector.get_row_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.dataframe_inspector.DataFrameInspector.get_row_hash_value">
+<code class="sig-name descname">get_row_hash_value</code><span class="sig-paren">(</span><em class="sig-param">row</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.dataframe_inspector.DataFrameInspector.get_row_hash_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.date_inspector">
+<span id="data-tsa-date-inspector-module"></span><h2>data_tsa.date_inspector module<a class="headerlink" href="#module-data_tsa.date_inspector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.date_inspector.DateInspector">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.date_inspector.</code><code class="sig-name descname">DateInspector</code><span class="sig-paren">(</span><em class="sig-param">series</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.date_inspector.DateInspector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#data_tsa.inspector.Inspector" title="data_tsa.inspector.Inspector"><code class="xref py py-class docutils literal notranslate"><span class="pre">data_tsa.inspector.Inspector</span></code></a></p>
+<dl class="method">
+<dt id="data_tsa.date_inspector.DateInspector.get_conversion_required_indicator">
+<code class="sig-name descname">get_conversion_required_indicator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.date_inspector.DateInspector.get_conversion_required_indicator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.date_inspector.DateInspector.get_precision_variance">
+<code class="sig-name descname">get_precision_variance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.date_inspector.DateInspector.get_precision_variance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.date_inspector.DateInspector.inspect">
+<code class="sig-name descname">inspect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.date_inspector.DateInspector.inspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspects the provided pandas.Series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary containing measures and values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.df_slicer">
+<span id="data-tsa-df-slicer-module"></span><h2>data_tsa.df_slicer module<a class="headerlink" href="#module-data_tsa.df_slicer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.df_slicer.DfSlicer">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.df_slicer.</code><code class="sig-name descname">DfSlicer</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">slicers=[]</em>, <em class="sig-param">timebounds=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.df_slicer.DfSlicer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="data_tsa.df_slicer.DfSlicer.get_slices">
+<code class="sig-name descname">get_slices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.df_slicer.DfSlicer.get_slices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.df_slicer.DfSlicer.split_df_by_slicer">
+<code class="sig-name descname">split_df_by_slicer</code><span class="sig-paren">(</span><em class="sig-param">df</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.df_slicer.DfSlicer.split_df_by_slicer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.df_slicer.DfSlicer.split_df_by_timebounds">
+<code class="sig-name descname">split_df_by_timebounds</code><span class="sig-paren">(</span><em class="sig-param">df</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.df_slicer.DfSlicer.split_df_by_timebounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.inspector">
+<span id="data-tsa-inspector-module"></span><h2>data_tsa.inspector module<a class="headerlink" href="#module-data_tsa.inspector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.inspector.Inspector">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.inspector.</code><code class="sig-name descname">Inspector</code><span class="sig-paren">(</span><em class="sig-param">series</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="data_tsa.inspector.Inspector.core_inspect">
+<code class="sig-name descname">core_inspect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector.core_inspect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.inspector.Inspector.get_max_value">
+<code class="sig-name descname">get_max_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector.get_max_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the maximum value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.inspector.Inspector.get_min_value">
+<code class="sig-name descname">get_min_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector.get_min_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the minimum value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.inspector.Inspector.get_null_count">
+<code class="sig-name descname">get_null_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector.get_null_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of numpy.NaN values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.inspector.Inspector.get_row_count">
+<code class="sig-name descname">get_row_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector.get_row_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.inspector.Inspector.inspect">
+<code class="sig-name descname">inspect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.inspector.Inspector.inspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspects the provided pandas.Series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary containing measures and values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.number_inspector">
+<span id="data-tsa-number-inspector-module"></span><h2>data_tsa.number_inspector module<a class="headerlink" href="#module-data_tsa.number_inspector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.number_inspector.NumberInspector">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.number_inspector.</code><code class="sig-name descname">NumberInspector</code><span class="sig-paren">(</span><em class="sig-param">series</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#data_tsa.inspector.Inspector" title="data_tsa.inspector.Inspector"><code class="xref py py-class docutils literal notranslate"><span class="pre">data_tsa.inspector.Inspector</span></code></a></p>
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_bottom_five_value_counts">
+<code class="sig-name descname">get_bottom_five_value_counts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_bottom_five_value_counts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_float_indicator">
+<code class="sig-name descname">get_float_indicator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_float_indicator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_mean_value">
+<code class="sig-name descname">get_mean_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_mean_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_median_value">
+<code class="sig-name descname">get_median_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_median_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_mode">
+<code class="sig-name descname">get_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_mode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_non_negative_count">
+<code class="sig-name descname">get_non_negative_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_non_negative_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_stdev">
+<code class="sig-name descname">get_stdev</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_stdev" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_top_five_value_counts">
+<code class="sig-name descname">get_top_five_value_counts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_top_five_value_counts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_value_skew">
+<code class="sig-name descname">get_value_skew</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_value_skew" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.get_zero_count">
+<code class="sig-name descname">get_zero_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.get_zero_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.number_inspector.NumberInspector.inspect">
+<code class="sig-name descname">inspect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.number_inspector.NumberInspector.inspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspects the provided pandas.Series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary containing measures and values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="data_tsa.number_inspector.float_dtypes">
+<code class="sig-prename descclassname">data_tsa.number_inspector.</code><code class="sig-name descname">float_dtypes</code><em class="property"> = [&lt;class 'float'&gt;, &lt;class 'numpy.float16'&gt;, &lt;class 'numpy.float32'&gt;, &lt;class 'numpy.float64'&gt;]</em><a class="headerlink" href="#data_tsa.number_inspector.float_dtypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="data_tsa.number_inspector.number_dtypes">
+<code class="sig-prename descclassname">data_tsa.number_inspector.</code><code class="sig-name descname">number_dtypes</code><em class="property"> = [&lt;class 'int'&gt;, &lt;class 'numpy.int64'&gt;, &lt;class 'numpy.int8'&gt;, &lt;class 'numpy.int16'&gt;, &lt;class 'numpy.int32'&gt;, &lt;class 'numpy.int64'&gt;, &lt;class 'float'&gt;, &lt;class 'numpy.float16'&gt;, &lt;class 'numpy.float32'&gt;, &lt;class 'numpy.float64'&gt;]</em><a class="headerlink" href="#data_tsa.number_inspector.number_dtypes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.profiler">
+<span id="data-tsa-profiler-module"></span><h2>data_tsa.profiler module<a class="headerlink" href="#module-data_tsa.profiler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.profiler.Profiler">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.profiler.</code><code class="sig-name descname">Profiler</code><span class="sig-paren">(</span><em class="sig-param">dataframe</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.get_column_dtype">
+<code class="sig-name descname">get_column_dtype</code><span class="sig-paren">(</span><em class="sig-param">column</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.get_column_dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the simple type of the provided column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>column</strong> (<em>str</em>) – column name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>‘string’, ‘number’, or ‘datetime’
+ValueError if simple type not detected</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.get_type_exception">
+<code class="sig-name descname">get_type_exception</code><span class="sig-paren">(</span><em class="sig-param">column</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.get_type_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if a given column has a user-specified exception type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>column</strong> (<em>str</em>) – column name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>‘string’, ‘number’, ‘datetime’, or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.profile">
+<code class="sig-name descname">profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes profile of provided DataFrame.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.set_type_exception">
+<code class="sig-name descname">set_type_exception</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">dtype</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.set_type_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify custom target inspection types</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> (<em>str</em>) – column name</p></li>
+<li><p><strong>dtype</strong> (<em>str</em>) – ‘string’, ‘number’, or ‘datetime’</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.validate_column">
+<code class="sig-name descname">validate_column</code><span class="sig-paren">(</span><em class="sig-param">column</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.validate_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifies that a column exists in the provided DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>column</strong> (<em>str</em>) – column name</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if column exists in DataFrame, else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.string_inspector">
+<span id="data-tsa-string-inspector-module"></span><h2>data_tsa.string_inspector module<a class="headerlink" href="#module-data_tsa.string_inspector" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.string_inspector.StringInspector">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.string_inspector.</code><code class="sig-name descname">StringInspector</code><span class="sig-paren">(</span><em class="sig-param">series</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#data_tsa.inspector.Inspector" title="data_tsa.inspector.Inspector"><code class="xref py py-class docutils literal notranslate"><span class="pre">data_tsa.inspector.Inspector</span></code></a></p>
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_distinct_count">
+<code class="sig-name descname">get_distinct_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_distinct_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_email_count">
+<code class="sig-name descname">get_email_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_email_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_empty_count">
+<code class="sig-name descname">get_empty_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_empty_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_estimated_duplicates_count">
+<code class="sig-name descname">get_estimated_duplicates_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_estimated_duplicates_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_special_character_count">
+<code class="sig-name descname">get_special_character_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_special_character_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_strict_distinct_count">
+<code class="sig-name descname">get_strict_distinct_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_strict_distinct_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.get_trim_required_count">
+<code class="sig-name descname">get_trim_required_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.get_trim_required_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.string_inspector.StringInspector.inspect">
+<code class="sig-name descname">inspect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.string_inspector.StringInspector.inspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspects the provided pandas.Series</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary containing measures and values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa.test_data">
+<span id="data-tsa-test-data-module"></span><h2>data_tsa.test_data module<a class="headerlink" href="#module-data_tsa.test_data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="data_tsa.test_data.TestData">
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.test_data.</code><code class="sig-name descname">TestData</code><span class="sig-paren">(</span><em class="sig-param">n</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="data_tsa.test_data.TestData.get_created_at">
+<code class="sig-name descname">get_created_at</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData.get_created_at" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.test_data.TestData.get_duplicate_string">
+<code class="sig-name descname">get_duplicate_string</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData.get_duplicate_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.test_data.TestData.get_id">
+<code class="sig-name descname">get_id</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData.get_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.test_data.TestData.get_partial_null">
+<code class="sig-name descname">get_partial_null</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData.get_partial_null" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.test_data.TestData.get_string_slicer">
+<code class="sig-name descname">get_string_slicer</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData.get_string_slicer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.test_data.TestData.get_test_data">
+<code class="sig-name descname">get_test_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.test_data.TestData.get_test_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-data_tsa">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-data_tsa" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Data TSA 0.0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Cambia BI.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.0.
+    </div>
+  </body>
+</html>
