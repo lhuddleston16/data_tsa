@@ -1,0 +1,78 @@
+ package
+========
+
+Submodules
+----------
+
+dataframe\_inspector module
+---------------------------
+
+.. automodule:: dataframe_inspector
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+date\_inspector module
+----------------------
+
+.. automodule:: date_inspector
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+df\_slicer module
+-----------------
+
+.. automodule:: df_slicer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+inspector module
+----------------
+
+.. automodule:: inspector
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+number\_inspector module
+------------------------
+
+.. automodule:: number_inspector
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+profiler module
+---------------
+
+.. automodule:: profiler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+sample\_data module
+-------------------
+
+.. automodule:: sample_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+string\_inspector module
+------------------------
+
+.. automodule:: string_inspector
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: 
+    :members:
+    :undoc-members:
+    :show-inheritance:
