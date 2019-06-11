@@ -46,17 +46,17 @@ data\_tsa.profiler module
    :members:
    :undoc-members:
    :show-inheritance:
+data\_tsa.sample\_data module
+-----------------------------
+
+.. automodule:: data_tsa.sample_data
+   :members:
+   :undoc-members:
+   :show-inheritance:
 data\_tsa.string\_inspector module
 ----------------------------------
 
 .. automodule:: data_tsa.string_inspector
-   :members:
-   :undoc-members:
-   :show-inheritance:
-data\_tsa.test\_data module
----------------------------
-
-.. automodule:: data_tsa.test_data
    :members:
    :undoc-members:
    :show-inheritance:

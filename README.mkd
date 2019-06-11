@@ -87,3 +87,10 @@ You can undo any work captured by git with the following command:
 3. Rebuild documentation
 
 `~\docs>make html`
+
+## Running PyTest
+The non-obvious inspector functions have companion tests in the __tests__ directory.
+
+You can run the tests with the following command:
+
+`~\data_tsa>python -m pytest tests\test.py`
