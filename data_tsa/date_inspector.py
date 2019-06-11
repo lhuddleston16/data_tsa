@@ -15,8 +15,8 @@ class DateInspector(Inspector):
         '''Returns True if the series is not currently a DateTime type.'''
         if self.series.dtypes.type != datetime64:
             self.series = self.series.astype(datetime64)
-            return True
-        return False
+            return 1
+        return 0
 
     def get_precision_variance(self):
         '''Returns a dictionary with the proportional frequency of different

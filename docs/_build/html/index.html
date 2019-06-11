@@ -69,7 +69,7 @@
 <p>The Profiler class is the main interface for Data TSA:</p>
 <dl class="class">
 <dt id="data_tsa.profiler.Profiler">
-<em class="property">class </em><code class="sig-prename descclassname">data_tsa.profiler.</code><code class="sig-name descname">Profiler</code><span class="sig-paren">(</span><em class="sig-param">dataframe</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">data_tsa.profiler.</code><code class="sig-name descname">Profiler</code><span class="sig-paren">(</span><em class="sig-param">dataframe</em>, <em class="sig-param">slicer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="data_tsa.profiler.Profiler.get_column_dtype">
 <code class="sig-name descname">get_column_dtype</code><span class="sig-paren">(</span><em class="sig-param">column</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.get_column_dtype" title="Permalink to this definition">¶</a></dt>
@@ -83,6 +83,12 @@
 ValueError if simple type not detected</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.get_slicer_values">
+<code class="sig-name descname">get_slicer_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.get_slicer_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a sorted list of unique slicer values.</p>
 </dd></dl>
 
 <dl class="method">
@@ -100,9 +106,42 @@ ValueError if simple type not detected</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="data_tsa.profiler.Profiler.insp_dict_to_dataframe">
+<code class="sig-name descname">insp_dict_to_dataframe</code><span class="sig-paren">(</span><em class="sig-param">column</em>, <em class="sig-param">inspection_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.insp_dict_to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tranforms and inspection dictionary into a pandas.DataFrame.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="data_tsa.profiler.Profiler.profile">
-<code class="sig-name descname">profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Executes profile of provided DataFrame.</p>
+<code class="sig-name descname">profile</code><span class="sig-paren">(</span><em class="sig-param">lags=None</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a column-wise evaluation of the columns in the dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lags</strong> (<em>int</em>) – The number of lagging measure values to be added to
+the output table</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dataframe containing summary measures for each column.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_tsa.profiler.Profiler.profile_dataframe">
+<code class="sig-name descname">profile_dataframe</code><span class="sig-paren">(</span><em class="sig-param">dataframe</em>, <em class="sig-param">slice_value</em><span class="sig-paren">)</span><a class="headerlink" href="#data_tsa.profiler.Profiler.profile_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Profiles an individual DataFrame, usually a sliced partition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataframe</strong> (<em>pandas.DataFrame</em>) – A pandas.DataFrame</p></li>
+<li><p><strong>slice_value</strong> (<em>str</em>) – The slicer value for a given partition.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:</p>
 </dd></dl>
 
 <dl class="method">

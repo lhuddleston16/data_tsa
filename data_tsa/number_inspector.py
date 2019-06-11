@@ -42,7 +42,7 @@ class NumberInspector(Inspector):
 
     def get_float_indicator(self):
         '''Returns True if the series dtype is a float.'''
-        return self.series.dtypes in float_dtypes
+        return 1 if self.series.dtypes in float_dtypes else 0
 
     def get_mean_value(self):
         '''Returns the mean value of the series.'''
@@ -84,13 +84,13 @@ class NumberInspector(Inspector):
             Dictionary containing measures and values
         '''
         insp = self.core_inspect()
-        insp['non_negative_count'] = self.get_non_negative_ratio()
+        insp['non_negative_ratio'] = self.get_non_negative_ratio()
         insp['float_indicator'] = self.get_float_indicator()
         insp['mean_value'] = self.get_mean_value()
         insp['median_value'] = self.get_median_value()
         insp['mode'] = self.get_mode()
         insp['stdev'] = self.get_stdev()
-        insp['zero_count'] = self. get_zero_ratio()
+        insp['zero_ratio'] = self. get_zero_ratio()
         insp['top_five_value_counts'] = self. get_top_five_value_counts()
         insp['bottom_five_value_counts'] = self.get_bottom_five_value_counts()
         insp['value_skew'] = self.get_value_skew()

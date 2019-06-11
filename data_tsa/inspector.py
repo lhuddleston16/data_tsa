@@ -29,7 +29,7 @@ class Inspector:
     def core_inspect(self):
         insp = {}
         insp['row_count'] = self.get_row_count()
-        insp['null_count'] = self.get_null_ratio()
+        insp['null_ratio'] = self.get_null_ratio()
         insp['min_value'] = self.get_min_value()
         insp['max_value'] = self.get_max_value()
         return insp
