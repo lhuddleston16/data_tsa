@@ -16,7 +16,7 @@ p1_output.head(20)
 profiler_slicer = Profiler(df, slicer='string_slicer')
 
 # Profile dataframe columns over slicer partitions
-p2_output = profiler_slicer.profile()
+p2_output = profiler_slicer.profile(lags=1)
 p2_output.head(20)
 
 # Check dataframe for row duplicates

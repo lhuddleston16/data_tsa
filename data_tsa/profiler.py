@@ -3,7 +3,6 @@
 import numpy as np
 from pandas import DataFrame
 from data_tsa.inspector import Inspector
-from data_tsa.dataframe_inspector import DataFrameInspector
 from data_tsa.number_inspector import NumberInspector, number_dtypes
 from data_tsa.string_inspector import StringInspector
 from data_tsa.date_inspector import DateInspector
@@ -89,18 +88,29 @@ class Profiler:
             return ValueError('\'{}\' did not resolve to a type of \'string\', \'datetime\', or \'number\''.format(column))
 
     def get_slicer_values(self):
+        '''Returns a sorted list of unique slicer values.'''
         s = self.dataframe[self.slicer].unique().tolist()
         s.sort()
         return s
 
     def insp_dict_to_dataframe(self, column, inspection_dict):
+        '''Tranforms and inspection dictionary into a pandas.DataFrame.'''
         d = {k: [v] for k, v in inspection_dict.items()}
         df = DataFrame(d).transpose().reset_index()
         df.columns = ['measure', 'measure_value']
         df['column'] = column
         return df[['column', 'measure', 'measure_value']]
 
-    def profile(self):
+    def profile(self, lags=None):
+        '''Performs a column-wise evaluation of the columns in the dataframe.
+
+        Args:
+            lags (int): The number of lagging measure values to be added to
+                the output table
+
+        Returns:
+            dataframe: A dataframe containing summary measures for each column.
+        '''
         if self.slicer:
             slices = self.get_slicer_values()
         else:
@@ -116,10 +126,21 @@ class Profiler:
                                      'column',
                                      'measure',
                                      'slice'])
+
+        if lags:
+            result = self.get_lags(result, lags)
+
         return result
 
     def profile_dataframe(self, dataframe, slice_value):
-        '''
+        '''Profiles an individual DataFrame, usually a sliced partition.
+
+        Args:
+            dataframe (pandas.DataFrame): A pandas.DataFrame
+            slice_value (str): The slicer value for a given partition.
+
+        Returns:
+
         '''
         output_columns = ['inspector',
                           'column',
@@ -130,21 +151,40 @@ class Profiler:
         for col in dataframe.columns:
             dtype = self.get_column_dtype(col)
             if dtype == 'string':
-                insp = StringInspector(self.dataframe[col])
+                insp = StringInspector(dataframe[col])
                 inspector_type = 'string'
             elif dtype == 'number':
-                insp = NumberInspector(self.dataframe[col])
+                insp = NumberInspector(dataframe[col])
                 inspector_type = 'number'
             elif dtype == 'datetime':
-                insp = DateInspector(self.dataframe[col])
+                insp = DateInspector(dataframe[col])
                 inspector_type = 'datetime'
             else:
-                insp = Inspector(self.dataframe[col])
+                insp = Inspector(dataframe[col])
                 inspector_type = 'generic'
             insp_dict = insp.inspect()
             df = self.insp_dict_to_dataframe(col, insp_dict)
             df['inspector'] = inspector_type
             df['slice'] = slice_value
             result = result.append(df[output_columns])
+
         return result
 
+    def get_lag_measure(self, row):
+        if (row['column'] == row['_column'] and
+            row['measure'] == row['_measure']):
+            return row['_measure_value']
+        else:
+            return None
+
+    def get_lags(self, dataframe, lags=1):
+        for i in range(1, lags+1):
+            dataframe['_column'] = dataframe['column'].shift(i)
+            dataframe['_measure'] = dataframe['measure'].shift(i)
+            dataframe['_measure_value'] = dataframe['measure_value'].shift(i)
+            column = 'l{}_measure_value'.format(i)
+            dataframe[column] = dataframe.apply(self.get_lag_measure, 1)
+            dataframe = dataframe.drop(['_column',
+                                        '_measure',
+                                        '_measure_value'], 1)
+        return dataframe

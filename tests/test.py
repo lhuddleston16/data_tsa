@@ -24,11 +24,11 @@ class TestDataFrameInspector:
     def test_get_duplicate_row_indicator(self):
         df = DataFrame({'a': [0, 1], 'b': [0, 1]})
         insp = DataFrameInspector(df)
-        assert insp.get_duplicate_row_indicator() == False
+        assert insp.get_duplicate_row_indicator() == 0
         
         df = DataFrame({'a': [0, 0], 'b': [0, 0]})
         insp = DataFrameInspector(df)
-        assert insp.get_duplicate_row_indicator() == True
+        assert insp.get_duplicate_row_indicator() == 1
         
 
 class TestInspector:
@@ -44,7 +44,7 @@ class TestDateInspctor:
     def test_get_date_conversion_ind(self):
         s = Series(['2019/1/1'])
         insp = DateInspector(s)
-        assert insp.get_conversion_required_indicator() == True
+        assert insp.get_conversion_required_indicator() == 1
         
     def test_get_date_precision_variance(self):
         s = Series([datetime(2019, 1, 1),
@@ -71,11 +71,11 @@ class TestNumberInspector:
     def test_get_float_indicator(self):
         s = Series([1.0])
         insp = NumberInspector(s)
-        assert insp.get_float_indicator() == True
+        assert insp.get_float_indicator() == 1
         
         s = Series([1])
         insp = NumberInspector(s)
-        assert insp.get_float_indicator() == False
+        assert insp.get_float_indicator() == 0
         
     def test_get_zero_ratio(self):
         s = Series([0, 0, NaN, 1])
@@ -135,4 +135,9 @@ class TestStringInspector:
         s = Series(['a', 'a ', ' a', ' a '])
         insp = StringInspector(s)
         assert insp.get_trim_required_ratio() == 0.75
+        
+    def test_redundancy_indicator(self):
+        s = Series(['A', 'a'])
+        insp = StringInspector(s)
+        assert insp.get_redundancy_indicator() == 1
         

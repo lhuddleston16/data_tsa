@@ -26,6 +26,12 @@ class StringInspector(Inspector):
         '''Returns the count of normalized distinct values.'''
         return len(set(self._get_standardized_values()))
 
+    def get_redundancy_indicator(self):
+        '''Returns 1 if redundant values are detected.'''
+        if self.get_distinct_count() > self.get_strict_distinct_count():
+            return 1
+        return 0
+
     def get_empty_ratio(self):
         '''Returns the percentage of empty ('') values out of all values.'''
         return len([_ for _ in self.series if _ == '']) / self.get_row_count()
@@ -58,8 +64,9 @@ class StringInspector(Inspector):
         result = self.core_inspect()
         result['distinct_count'] = self.get_distinct_count()
         result['strict_distinct_count'] = self.get_strict_distinct_count()
-        result['empty_count'] = self.get_empty_ratio()
-        result['special_character_count'] = self.get_special_character_ratio()
-        result['email_count'] = self.get_email_ratio()
-        result['trim_required_count'] = self.get_trim_required_ratio()
+        result['empty_ratio'] = self.get_empty_ratio()
+        result['special_character_ratio'] = self.get_special_character_ratio()
+        result['email_ratio'] = self.get_email_ratio()
+        result['trim_required_ratio'] = self.get_trim_required_ratio()
+        result['redundancy_indicator'] = self.get_redundancy_indicator()
         return result
