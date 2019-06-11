@@ -66,6 +66,8 @@ class SampleData:
         self._get_duplicate_string('duplicate_string')
         self._get_string_slicer('string_slicer')
         self._get_mixed_precision_datetime('mixed_precision_datetime')
+        self._get_date_string('date_string')
+        self._get_mixed_sign_numbers('mixed_sign_numbers')
         return self.df.copy()
 
 if __name__ == '__main__':

@@ -41,7 +41,6 @@ class StringInspector(Inspector):
         email_count = len(self._re_search(r'[^@]+@[^@]+\.[^@]+'))
         return email_count / self.get_row_count()
 
-
     def get_trim_required_ratio(self):
         '''Returns the percentage of records with extra whitespace out
         of all values.
@@ -59,8 +58,8 @@ class StringInspector(Inspector):
         result = self.core_inspect()
         result['distinct_count'] = self.get_distinct_count()
         result['strict_distinct_count'] = self.get_strict_distinct_count()
-        result['empty_count'] = self.get_empty_count()
-        result['special_character_count'] = self.get_special_character_count()
-        result['email_count'] = self.get_email_count()
-        result['trim_required_count'] = self.get_trim_required_count()
+        result['empty_count'] = self.get_empty_ratio()
+        result['special_character_count'] = self.get_special_character_ratio()
+        result['email_count'] = self.get_email_ratio()
+        result['trim_required_count'] = self.get_trim_required_ratio()
         return result

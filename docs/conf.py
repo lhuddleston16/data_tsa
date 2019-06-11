@@ -24,7 +24,6 @@ author = 'Cambia BI'
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
 
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -33,6 +32,8 @@ release = '0.0.1'
 extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.coverage', 
               'sphinx.ext.napoleon']
+
+napoleon_include_private_with_doc = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
