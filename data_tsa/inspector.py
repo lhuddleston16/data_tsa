@@ -14,9 +14,9 @@ class Inspector:
         '''Returns the number of items.'''
         return len(self.series)
         
-    def get_null_count(self):
-        '''Returns the number of numpy.NaN values.'''
-        return len(self.series[isnull(self.series)])
+    def get_null_ratio(self):
+        '''Returns the percentage of numpy.NaN values out of all values.'''
+        return len(self.series[isnull(self.series)]) / self.get_row_count()
     
     def get_min_value(self):
         '''Returns the minimum value.'''
