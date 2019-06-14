@@ -28,3 +28,11 @@ class DataFrameInspector:
         if unique_row_ct != len(self.dataframe):
             return True
         return False
+
+    def get_duplicate_rows(self):
+        '''Returns the rows in the DataFrame that are duplciated.'''
+        s = self.dataframe[self.hash_col_name]
+        vc = s.value_counts()
+        dupes = vc[vc.values > 1].index.tolist()
+        dupe_df = self.dataframe[self.dataframe[self.hash_col_name].isin(dupes)]
+        return dupe_df.sort_values([self.hash_col_name])

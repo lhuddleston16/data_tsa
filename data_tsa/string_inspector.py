@@ -11,16 +11,12 @@ class StringInspector(Inspector):
         '''
         super().__init__(series)
 
-    def get_distinct_count(self):
-        '''Returns the number of distinct values.'''
-        return len(self.series.unique())
-
     def _get_standardized_values(self):
         s = self.series.tolist()
-        return [_.lower().strip() for _ in s]
+        return [str(_).lower().strip() for _ in s]
 
     def _re_search(self, pattern):
-        return [_ for _ in self.series if search(pattern, _)]
+        return [_ for _ in self.series if search(pattern, str(_))]
 
     def get_strict_distinct_count(self):
         '''Returns the count of normalized distinct values.'''
@@ -62,11 +58,10 @@ class StringInspector(Inspector):
             Dictionary containing measures and values
         '''
         result = self.core_inspect()
-        result['distinct_count'] = self.get_distinct_count()
         result['strict_distinct_count'] = self.get_strict_distinct_count()
         result['empty_ratio'] = self.get_empty_ratio()
         result['special_character_ratio'] = self.get_special_character_ratio()
-        result['email_ratio'] = self.get_email_ratio()
+#         result['email_ratio'] = self.get_email_ratio()
         result['trim_required_ratio'] = self.get_trim_required_ratio()
         result['redundancy_indicator'] = self.get_redundancy_indicator()
         return result

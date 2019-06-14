@@ -3,6 +3,7 @@
 import numpy as np
 from pandas import DataFrame
 from data_tsa.inspector import Inspector
+from data_tsa.boolean_inspector import BooleanInspector
 from data_tsa.number_inspector import NumberInspector, number_dtypes
 from data_tsa.string_inspector import StringInspector
 from data_tsa.date_inspector import DateInspector
@@ -24,17 +25,18 @@ class Profiler:
             self.validate_column(slicer)
         self.slicer = slicer
         self.type_exceptions = []
+        self.result = DataFrame()
 
     def set_type_exception(self, column, dtype):
         '''Specify custom target inspection types
 
         Args:
             column (str): column name
-            dtype (str): 'string', 'number', or 'datetime'
+            dtype (str): 'string', 'number', 'bool', or 'datetime'
         '''
         self.validate_column(column)
-        if dtype not in ('string', 'date', 'number'):
-            raise ValueError('\'dtype\' must be \'string\', \'datetime\', or \'number\'')
+        if dtype not in ('string', 'datetime', 'number', 'bool'):
+            raise ValueError('\'dtype\' must be \'string\', \'datetime\', \'bool\', or \'number\'')
         self.type_exceptions.append((column, dtype))
 
     def validate_column(self, column):
@@ -56,13 +58,19 @@ class Profiler:
             column (str): column name
 
         Returns:
-            'string', 'number', 'datetime', or None
+            'string', 'number', 'datetime', 'bool', or None
         '''
         cols = [_[0] for _ in self.type_exceptions]
         dtypes = [_[1] for _ in self.type_exceptions]
         if column in cols:
             return dtypes[cols.index(column)]
-
+        
+    def detect_boolean(self, series):
+        '''Return True if a series contains only NaN, True, or False'''
+        if len([_ for _ in series if _ and _ not in [True, False]]) > 0:
+            return False
+        return True
+        
     def get_column_dtype(self, column):
         '''Returns the simple type of the provided column.
 
@@ -70,7 +78,7 @@ class Profiler:
             column (str): column name
 
         Returns:
-            'string', 'number', or 'datetime'
+            'string', 'number', 'bool', or 'datetime'
             ValueError if simple type not detected
         '''
         type_exception = self.get_type_exception(column)
@@ -78,14 +86,20 @@ class Profiler:
             return type_exception
         self.validate_column(column)
         dtype = self.dataframe[column].dtype.type
-        if dtype == np.object_:
+        if self.detect_boolean(self.dataframe[column]):
+            return 'bool'
+        elif dtype == np.object_:
             return 'string'
         elif dtype == np.datetime64:
             return 'datetime'
         elif dtype in number_dtypes:
             return 'number'
         else:
-            return ValueError('\'{}\' did not resolve to a type of \'string\', \'datetime\', or \'number\''.format(column))
+            msg = '''
+            '\'{}\' did not resolve to a type of \'string\', \'datetime\', \'bool\', 
+            or \'number\''.format(column)
+            '''
+            return ValueError(msg)
 
     def get_slicer_values(self):
         '''Returns a sorted list of unique slicer values.'''
@@ -114,11 +128,13 @@ class Profiler:
         if self.slicer:
             slices = self.get_slicer_values()
         else:
-            return self.profile_dataframe(self.dataframe, None)
+            self.result = self.profile_dataframe(self.dataframe, None)
+            return self.result
 
         result = DataFrame()
 
         for s in slices:
+            print(slices.index(s) + 1, '/', len(slices))
             df = self.dataframe[self.dataframe[self.slicer]==s]
             result = result.append(self.profile_dataframe(df, s))
 
@@ -130,6 +146,8 @@ class Profiler:
         if lags:
             result = self.get_lags(result, lags)
 
+        self.result = result
+        
         return result
 
     def profile_dataframe(self, dataframe, slice_value):
@@ -150,7 +168,10 @@ class Profiler:
         result = DataFrame()
         for col in dataframe.columns:
             dtype = self.get_column_dtype(col)
-            if dtype == 'string':
+            if dtype == 'bool':
+                insp = BooleanInspector(dataframe[col])
+                inspector_type = 'bool'
+            elif dtype == 'string':
                 insp = StringInspector(dataframe[col])
                 inspector_type = 'string'
             elif dtype == 'number':
@@ -171,6 +192,7 @@ class Profiler:
         return result
 
     def get_lag_measure(self, row):
+        '''Returns the lagged value of a measure'''
         if (row['column'] == row['_column'] and
             row['measure'] == row['_measure']):
             return row['_measure_value']
@@ -178,6 +200,15 @@ class Profiler:
             return None
 
     def get_lags(self, dataframe, lags=1):
+        '''Returns the specified number of lagged measure values
+        
+        Args:
+            dataframe (pandas.DataFrame): A pandas.DataFrame object
+            lags (int): The number of lagged measure values to be calculated
+        
+        Returns:
+            A pandas.DataFrame object with new lagging measure value columns
+        '''
         for i in range(1, lags+1):
             dataframe['_column'] = dataframe['column'].shift(i)
             dataframe['_measure'] = dataframe['measure'].shift(i)
@@ -188,3 +219,12 @@ class Profiler:
                                         '_measure',
                                         '_measure_value'], 1)
         return dataframe
+    
+    def show_column_result(self, column):
+        '''Returns a pivot of the measure values by slice for a given column'''
+        self.validate_column(column)
+        if self.result.empty:
+            raise ValueError('The profile result has not been calculated!')
+            return False
+        df = self.result[self.result['column']==column][['slice', 'measure', 'measure_value']]
+        return df.pivot(index='slice', columns='measure').reset_index()

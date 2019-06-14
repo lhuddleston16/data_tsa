@@ -3,3 +3,4 @@ data_tsa/__pycache__
 /__pycache__
 /.pytest_cache
 /tests/__pycache__
+/.ipynb_checkpoints
