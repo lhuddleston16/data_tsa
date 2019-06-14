@@ -1,5 +1,6 @@
 from data_tsa.inspector import Inspector
-from numpy import datetime64
+from numpy import datetime64, object_
+from pandas import to_datetime
 
 class DateInspector(Inspector):
 
@@ -12,16 +13,25 @@ class DateInspector(Inspector):
         super().__init__(series)
 
     def get_conversion_required_indicator(self):
-        '''Returns True if the series is not currently a DateTime type.'''
+        '''Returns 1 if the series is not currently a DateTime type.'''
         if self.series.dtypes.type != datetime64:
-            self.series = self.series.astype(datetime64)
+            self.series = to_datetime(self.series, errors='ignore')
             return 1
         return 0
 
+    def get_conversion_error_indicator(self):
+        '''Returns 1 if the series cannot be converted to a DateTime type.'''
+        if self.series.dtype.type == object_:
+                return 1
+        return 0
+    
     def get_precision_variance(self):
         '''Returns a dictionary with the proportional frequency of different
         precisions.
         '''
+        if self.get_conversion_error_indicator() == 1:
+            return None
+        
         # microseconds
         x = [_ for _ in self.series if _.microsecond != 0]
         x = len(x)
@@ -55,6 +65,9 @@ class DateInspector(Inspector):
             Dictionary containing measures and values
         '''
         result = self.core_inspect()
-        result['conversion_required'] = self.get_conversion_required_indicator()
-        result['precision_variance'] = self.get_precision_variance()
+        result['min_value'] = self.get_min_value()
+        result['max_value'] = self.get_max_value()
+        result['conversion_error_indicator'] = self.get_conversion_required_indicator()
+#         result['conversion_required'] = self.get_conversion_required_indicator()
+#         result['precision_variance'] = self.get_precision_variance()
         return result

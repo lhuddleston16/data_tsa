@@ -63,10 +63,10 @@ class TestDateInspctor:
         
 class TestNumberInspector:
     
-    def test_get_non_negative_ratio(self):
+    def test_get_negative_ratio(self):
         s = Series([-1, -1, NaN, 1])
         insp = NumberInspector(s)
-        assert insp.get_non_negative_ratio() == 0.5
+        assert insp.get_negative_ratio() == 0.5
         
     def test_get_float_indicator(self):
         s = Series([1.0])
