@@ -115,7 +115,7 @@ class Profiler:
         df['column'] = column
         return df[['column', 'measure', 'measure_value']]
 
-    def profile(self, lags=None):
+    def profile(self, lags=3):
         '''Performs a column-wise evaluation of the columns in the dataframe.
 
         Args:

@@ -34,7 +34,7 @@ class SampleData:
         self.df[name] = arr
 
     def _get_string_slicer(self, name):
-        d = ['A', 'B']
+        d = ['A', 'B', 'C', 'D']
         self.df[name] = self._generate_list_from_domain(d)
 
     def _get_duplicate_string(self, name):

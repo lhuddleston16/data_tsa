@@ -57,11 +57,11 @@ class StringInspector(Inspector):
         Returns:
             Dictionary containing measures and values
         '''
-        result = self.core_inspect()
-        result['strict_distinct_count'] = self.get_strict_distinct_count()
-        result['empty_ratio'] = self.get_empty_ratio()
-        result['special_character_ratio'] = self.get_special_character_ratio()
+        insp = self.core_inspect()
+        insp['strict_distinct_count'] = self.get_strict_distinct_count()
+        insp['empty_ratio'] = self.get_empty_ratio()
+        insp['special_character_ratio'] = self.get_special_character_ratio()
 #         result['email_ratio'] = self.get_email_ratio()
-        result['trim_required_ratio'] = self.get_trim_required_ratio()
-        result['redundancy_indicator'] = self.get_redundancy_indicator()
-        return result
+        insp['trim_required_ratio'] = self.get_trim_required_ratio()
+        insp['redundancy_indicator'] = self.get_redundancy_indicator()
+        return insp
