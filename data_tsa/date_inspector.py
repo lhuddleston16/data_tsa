@@ -64,10 +64,10 @@ class DateInspector(Inspector):
         Returns:
             Dictionary containing measures and values
         '''
-        result = self.core_inspect()
-        result['min_value'] = self.get_min_value()
-        result['max_value'] = self.get_max_value()
-        result['conversion_error_indicator'] = self.get_conversion_required_indicator()
+        insp = self.core_inspect()
+        insp['conversion_error_indicator'] = self.get_conversion_required_indicator()
+        insp['min_value'] = self.get_min_value()
+        insp['max_value'] = self.get_max_value()
 #         result['conversion_required'] = self.get_conversion_required_indicator()
 #         result['precision_variance'] = self.get_precision_variance()
-        return result
+        return insp

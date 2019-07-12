@@ -24,8 +24,8 @@ class BooleanInspector(Inspector):
         Returns:
             Dictionary containing measures and values
         '''
-        result = self.core_inspect()
-        result['true_ratio'] = self.get_true_ratio()
-        result['false_ratio'] = self.get_false_ratio()
-        return result
+        insp = self.core_inspect()
+        insp['true_ratio'] = self.get_true_ratio()
+        insp['false_ratio'] = self.get_false_ratio()
+        return insp
     
